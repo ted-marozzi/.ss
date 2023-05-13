@@ -7,7 +7,7 @@ export SSHOME="$HOME/.ss"
 function ss() {
     local action="$1";
     cd "$SSHOME"
-    if [ "$action" = "sync" ]; then
+    if [ "$action" = "push" ]; then
         local message="${2:-Update Config}"
         git add README.md shellsync.sh sharedconfig.sh
         git commit -m "$message"
@@ -20,7 +20,7 @@ function ss() {
         # Implement this command by echoing the config in sharedconfig.sh
         _list
     else
-        echo "ss sync 'optional sync message': sync setting changes"
+        echo "ss push 'optional sync message': sync setting changes"
         echo "ss pull: pull setting changes down (This happens on terminal open)"
         echo "ss open: open $SSHOME in an editor"
         echo "ss list: list shared commands"
