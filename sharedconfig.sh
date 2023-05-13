@@ -93,4 +93,3 @@ function replaceSymlink() {
 }
 
 set +euo pipefail
-
