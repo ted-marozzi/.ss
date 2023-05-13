@@ -2,6 +2,20 @@
 # Replace this files with your own config
 set -euo pipefail
 
+
+function _list() {
+    echo "gc"
+    echo "gcp"
+    echo "ghc"
+    echo "ghct"
+    echo "gm"
+    echo "touchSh"
+    echo "rmf"
+    echo "openzsh"
+    echo "openhome"
+    echo "replaceSymlink"
+}
+
 function gc() {
     local message="${1:-updates}"
     git add -A
@@ -59,7 +73,16 @@ function touchsh() {
     chmod +x "./$filename.sh"
 }
 
-alias rmf="rm -rdf"
+
+function rmf() {
+    local dir="$1"
+    if [ "$dir" = "~" ] || [ "$dir" = "/" ] || [ "$dir" = "/Applications" ] || [ "$dir" = "/System" ] || [ "$dir" = "/Volumes" ] || [ "$dir" = "/cores" ] || [ "$dir" = "/etc" ] || [ "$dir" = "/opt" ] || [ "$dir" = "/sbin" ] || [ "$dir" = "/usr" ] || [ "$dir" = "/Library" ] || [ "$dir" = "/Users" ] || [ "$dir" = "/bin" ] || [ "$dir" = "/dev" ] || [ "$dir" = "/home" ] || [ "$dir" = "/private" ] || [ "$dir" = "/tmp" ] || [ "$dir" = "/var" ]; then
+        echo "Run rf -rdf manually, this is too scary for me"
+        exit 1
+    else
+        rm -rdf "$dir"
+    fi
+}
 
 alias openzsh="code ~/.zshrc";
 alias openhome="code ~"
