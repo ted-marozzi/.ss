@@ -84,6 +84,10 @@ function rmf() {
     fi
 }
 
+function kp() {
+    npx kill-port "$1"
+}
+
 alias openzsh="code ~/.zshrc";
 alias openhome="code ~"
 

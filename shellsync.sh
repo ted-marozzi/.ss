@@ -4,6 +4,7 @@ set -euo pipefail
 # Shell Sync
 # Keep a set of functions, alias' and variables synced across machines.
 export SSHOME="$HOME/.ss"
+
 function ss() {
     local action="$1";
     cd "$SSHOME"
@@ -31,6 +32,7 @@ function ss() {
 function _sspull() {
     ss pull 1> /dev/null
 }
+
 # Pretend its fast but run it async lol
 # Your profile will be avaliable when you refresh your shell
 echo "Shell Synced ⚡️"
