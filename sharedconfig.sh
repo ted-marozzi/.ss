@@ -75,12 +75,12 @@ function touchsh() {
 
 
 function rmf() {
-    local dir="$1"
+    local dir="${@: -1}"
     if [ "$dir" = "~" ] || [ "$dir" = "/" ] || [ "$dir" = "/Applications" ] || [ "$dir" = "/System" ] || [ "$dir" = "/Volumes" ] || [ "$dir" = "/cores" ] || [ "$dir" = "/etc" ] || [ "$dir" = "/opt" ] || [ "$dir" = "/sbin" ] || [ "$dir" = "/usr" ] || [ "$dir" = "/Library" ] || [ "$dir" = "/Users" ] || [ "$dir" = "/bin" ] || [ "$dir" = "/dev" ] || [ "$dir" = "/home" ] || [ "$dir" = "/private" ] || [ "$dir" = "/tmp" ] || [ "$dir" = "/var" ]; then
         echo "Run rf -rdf manually, this is too scary for me"
         exit 1
     else
-        rm -rdf "$dir"
+        rm -rdf "$@"
     fi
 }
 
