@@ -96,4 +96,12 @@ function replaceSymlink() {
     rm "$1" && cp -a "$sourcefile" "$1";
 }
 
+function replaceAllSymlinks() {
+    find ./ -type l -exec sh -c 'for i in "$@"; do replaceSymlink $1; done' sh {} +
+}
+
+function gitStashApply() {
+    git stash apply stash^{/"$1"}
+}
+
 set +euo pipefail
