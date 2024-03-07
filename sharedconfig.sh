@@ -119,6 +119,9 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 
 preexec() { echo -ne '\e[5 q'; } # Use beam shape cursor for each new prompt.
 
+function ip() {
+    ipconfig getifaddr en0
+}
 # end: vim config
 
 set +euo pipefail
