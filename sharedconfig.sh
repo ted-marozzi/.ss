@@ -85,7 +85,7 @@ function replaceSymlink() {
 }
 
 function replaceAllSymlinks() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do replaceSymlink $1; done' sh {} +
+    find ./ -type l -exec sh -c 'for i in "$@"; do replaceSymlink $1; done' bash {} +
 }
 
 # start: vim config
