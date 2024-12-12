@@ -105,10 +105,19 @@ function zle-keymap-select() {
 
 zle -N zle-keymap-select
 
-
 function ip() {
     ipconfig getifaddr en0
 }
 # end: vim config
 
+# Set up fzf key bindings and fuzzy completion
+# shellcheck source=/dev/null
+source <(fzf --zsh)
+autoload -U compinit
+compinit
+# shellcheck source=/dev/null
+source ~/Code/fzf-tab/fzf-tab.plugin.zsh
+
+# shellcheck source=/dev/null
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 set +euo pipefail
