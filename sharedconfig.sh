@@ -110,11 +110,13 @@ function ip() {
 }
 # end: vim config
 
+autoload -U compinit
+compinit
+
 # Set up fzf key bindings and fuzzy completion
 # shellcheck source=/dev/null
 source <(fzf --zsh)
-autoload -U compinit
-compinit
+
 # shellcheck source=/dev/null
 source ~/Code/fzf-tab/fzf-tab.plugin.zsh
 
