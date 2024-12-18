@@ -120,6 +120,10 @@ source <(fzf --zsh)
 # shellcheck source=/dev/null
 source ~/Code/fzf-tab/fzf-tab.plugin.zsh
 
-# shellcheck source=/dev/null
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
 set +euo pipefail
