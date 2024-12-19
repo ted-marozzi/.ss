@@ -110,20 +110,8 @@ function ip() {
 }
 # end: vim config
 
-autoload -U compinit
-compinit
-
-# Set up fzf key bindings and fuzzy completion
-# shellcheck source=/dev/null
-source <(fzf --zsh)
-
-# shellcheck source=/dev/null
-source ~/Code/fzf-tab/fzf-tab.plugin.zsh
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-
-# preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+setopt interactivecomments transientrprompt
+# Requires brew install zsh-autocomplete
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 set +euo pipefail
