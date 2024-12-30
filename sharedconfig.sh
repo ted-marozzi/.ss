@@ -112,6 +112,6 @@ function ip() {
 
 setopt interactivecomments transientrprompt
 # Requires brew install zsh-autocomplete
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /Users/tedmarozzi/Code/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 set +euo pipefail
